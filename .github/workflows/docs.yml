@@ -28,14 +28,13 @@ jobs:
       # Install dependencies
       - name: Install dependencies
         run: npm install
+      # Build VuePress site
+      - name: Build VuePress site
+        run: npm run docs:build
 
       # Prepare API directory
       - name: Prepare API directory
         run: npm run api:prepare
-
-      # Build VuePress site
-      - name: Build VuePress site
-        run: npm run docs:build
 
       # Build API documentation
       - name: Build API documentation
