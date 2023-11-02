@@ -1,6 +1,17 @@
 {
-  "name": "cdk-app",
+  "name": "@yoshitaka-motomura/aws-cdk-app-template",
   "version": "0.1.0",
+  "description": "AWS CDK App Template",
+  "homepage": "https://yoshitaka-motomura.github.io/aws-cdk-app-template/",
+  "author": {
+    "name": "Yoshitaka Motomura",
+    "url": "https://github.com/yoshitaka-motomura"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:yoshitaka-motomura/aws-cdk-app-template.git"
+  },
   "bin": {
     "cdk-app": "bin/cdk-app.js"
   },

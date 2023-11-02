@@ -7,7 +7,9 @@ node_modules
 .idea
 .temp
 .cache
+.python-version
 __pycache__
+.pytest_cache
 docs
 
 # CDK asset staging directory
