@@ -4,10 +4,12 @@
 *.d.ts
 node_modules
 .eslintcache
-
+.idea
 .temp
 .cache
+__pycache__
 docs
+
 # CDK asset staging directory
 .cdk.staging
 cdk.out
