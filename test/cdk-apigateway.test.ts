@@ -9,7 +9,7 @@ describe('ApigatewayStack', () => {
 
   //lambdaファンクションが2つあるかどうか
   it('should have two Lambda functions', () => {
-    template.resourceCountIs('AWS::Lambda::Function', 2)
+    template.resourceCountIs('AWS::Lambda::Function', 3)
   })
 
   //API Gatewayがあるかどうか
@@ -40,6 +40,20 @@ describe('ApigatewayStack', () => {
 
     //helloIdCaptureが正規表現にマッチするかどうか
     expect(helloIdCapture.asObject()).toEqual({
+      Ref: expect.stringMatching(/MessageApi[A-Za-z0-9]+/),
+    })
+  })
+
+  //API Gatewayのリソースがpython-messageがGETとして定義されているか
+  it('should have a python-message resource with GET method', () => {
+    const pythonMessageIdCapture = new Capture()
+    template.hasResourceProperties('AWS::ApiGateway::Method', {
+      HttpMethod: 'GET',
+      ResourceId: pythonMessageIdCapture,
+    })
+
+    //pythonMessageIdCaptureが正規表現にマッチするかどうか
+    expect(pythonMessageIdCapture.asObject()).toEqual({
       Ref: expect.stringMatching(/MessageApi[A-Za-z0-9]+/),
     })
   })
