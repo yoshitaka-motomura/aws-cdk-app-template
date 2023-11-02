@@ -7,26 +7,30 @@ describe('ApigatewayStack', () => {
   const stack = new ApigatewayStack(app, 'MyTestStack')
   const template = Template.fromStack(stack)
 
+  //lambdaファンクションが2つあるかどうか
   it('should have two Lambda functions', () => {
     template.resourceCountIs('AWS::Lambda::Function', 2)
   })
 
+  //API Gatewayがあるかどうか
   it('should have an API Gateway', () => {
     template.resourceCountIs('AWS::ApiGateway::RestApi', 1)
   })
 
+  //API GatewayのリソースがmessageがGETとして定義されているか
   it('should have a message resource with GET method', () => {
     const messageIdCapture = new Capture()
     template.hasResourceProperties('AWS::ApiGateway::Method', {
       HttpMethod: 'GET',
       ResourceId: messageIdCapture,
     })
-
+    //messageIdCaptureが正規表現にマッチするかどうか
     expect(messageIdCapture.asObject()).toEqual({
       Ref: expect.stringMatching(/MessageApi[A-Za-z0-9]+/),
     })
   })
 
+  //API GatewayのリソースがhelloがGETとして定義されているか
   it('should have a hello resource with GET method', () => {
     const helloIdCapture = new Capture()
     template.hasResourceProperties('AWS::ApiGateway::Method', {
@@ -34,11 +38,13 @@ describe('ApigatewayStack', () => {
       ResourceId: helloIdCapture,
     })
 
+    //helloIdCaptureが正規表現にマッチするかどうか
     expect(helloIdCapture.asObject()).toEqual({
       Ref: expect.stringMatching(/MessageApi[A-Za-z0-9]+/),
     })
   })
 
+  //API GatewayのAPI URLが出力されているかどうか
   it('should have an output with API URL', () => {
     template.hasOutput('ApiUrl', {
       Export: {
