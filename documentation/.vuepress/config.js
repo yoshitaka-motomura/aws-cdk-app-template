@@ -6,6 +6,7 @@ export default defineUserConfig({
   title: 'VuePress',
   description: 'Just playing around',
   dest: './docs',
+  base: '/aws-cdk-app-template/', // for github pages repository name
   theme: defaultTheme({
     navbar: [{ text: 'Home', link: '/' }],
     repo: 'https://github.com/yoshitaka-motomura/aws-cdk-app-template',
