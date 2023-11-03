@@ -1,9 +1,8 @@
 # AWS CDK APP TEMPLATE
 
 ## Description
-This is a template for AWS CDK applications. It is intended to be used as a starting point for new AWS CDK applications.
+AWS CDK のアプリケーションを生成するテンプレートです。AWS CDK のアプリケーションを新規に作成する際に利用してください。
 
-build lambda functions in pyhon and nodejs languages.
 
 ## Requirements
 - [Node.js 18.x or later](https://nodejs.org/)
