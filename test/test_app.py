@@ -1,5 +1,5 @@
 
-from src.lambda_python.app import lambda_handler
+from app import lambda_handler
 import unittest
 import json
 
@@ -18,7 +18,7 @@ class TestLambdaFunction(unittest.TestCase):
 
         # ボディが期待する値であることを確認
         self.assertEqual(response['body'], json.dumps(
-            {'message': 'Hello World from Lambda!'}))
+            {'message': 'Hello World from Lambda!', 'sum': 2}))
 
 
 if __name__ == '__main__':

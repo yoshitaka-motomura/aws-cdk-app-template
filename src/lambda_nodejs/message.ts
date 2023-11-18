@@ -1,4 +1,5 @@
-import { APIGatewayProxyEventV2, APIGatewayProxyResultV2, APIGatewayEventRequestContextV2 } from 'aws-lambda'
+import {APIGatewayEventRequestContextV2, APIGatewayProxyEventV2, APIGatewayProxyResultV2} from 'aws-lambda'
+
 export const handler = async (event: APIGatewayProxyEventV2, _context: APIGatewayEventRequestContextV2): Promise<APIGatewayProxyResultV2> => {
   const id = event.queryStringParameters?.id || false
   const code = id ? 200 : 400
