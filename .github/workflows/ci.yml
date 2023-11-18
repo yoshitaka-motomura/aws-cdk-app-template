@@ -23,7 +23,8 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
-
+      - name: Node.js lint
+        run: npm run lint
       - name: Run Tests
         run: npm test
 
