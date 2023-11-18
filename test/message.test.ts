@@ -1,4 +1,4 @@
-import { handler } from '../../../src/lambda_nodejs/message'
+import { handler } from '../src/message'
 import { APIGatewayProxyEventV2, APIGatewayEventRequestContextV2 } from 'aws-lambda'
 
 describe('handler with query string', () => {

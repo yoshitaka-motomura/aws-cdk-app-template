@@ -3,6 +3,7 @@ import * as cdk from 'aws-cdk-lib'
 import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs'
 import { Runtime, Function, Code } from 'aws-cdk-lib/aws-lambda'
 import { RestApi, LambdaIntegration } from 'aws-cdk-lib/aws-apigateway'
+import * as path from 'path'
 
 export class ApigatewayStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
@@ -18,13 +19,13 @@ export class ApigatewayStack extends cdk.Stack {
       },
     }
 
-    const messageLambdaFunc = new NodejsFunction(this, 'MessageLambda', { ...lambdaFunctionDefaultOptions, entry: 'src/lambda_nodejs/message.ts' })
-    const hellolambdaFunc = new NodejsFunction(this, 'HelloLambda', { ...lambdaFunctionDefaultOptions, entry: 'src/lambda_nodejs/hello.ts' })
+    const messageLambdaFunc = new NodejsFunction(this, 'MessageLambda', { ...lambdaFunctionDefaultOptions, entry: 'src/message.ts' })
+    const hellolambdaFunc = new NodejsFunction(this, 'HelloLambda', { ...lambdaFunctionDefaultOptions, entry: 'src/hello.ts' })
     const pythonMessageLambdaFunc = new Function(this, 'PythonMessageLambda', {
       ...lambdaFunctionDefaultOptions,
-      runtime: Runtime.PYTHON_3_11,
-      code: Code.fromAsset('src/lambda_python'),
+      code: Code.fromAsset(path.join(__dirname, '../src/')),
       handler: 'app.lambda_handler',
+      runtime: Runtime.PYTHON_3_10,
     })
 
     const api = new RestApi(this, 'MessageApi', {
