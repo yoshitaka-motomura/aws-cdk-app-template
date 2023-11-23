@@ -24,9 +24,6 @@
     "lint:fix": "eslint --cache --fix --ext .ts . && prettier --write .",
     "docs:dev": "vuepress dev documentation",
     "docs:build": "vuepress build documentation",
-    "api:dev": "aglio -i apib/index.apib --theme-template triple  --theme-variables slate -s",
-    "api:build": "aglio -i apib/index.apib --theme-template triple  --theme-variables slate -o docs/api/index.html",
-    "api:prepare": "mkdir -p docs/api",
     "docs:deploy": "npm run docs:build && npm run api:prepare && npm run api:build"
   },
   "devDependencies": {
@@ -49,7 +46,6 @@
   },
   "dependencies": {
     "@aws-cdk/aws-lambda-python-alpha": "^2.110.0-alpha.0",
-    "aglio": "^2.3.0",
     "aws-cdk-lib": "2.110.0",
     "aws-sdk": "^2.1499.0",
     "constructs": "^10.3.0",

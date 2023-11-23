@@ -32,14 +32,6 @@ jobs:
       - name: Build VuePress site
         run: npm run docs:build
 
-      # Prepare API directory
-      - name: Prepare API directory
-        run: npm run api:prepare
-
-      # Build API documentation
-      - name: Build API documentation
-        run: npm run api:build
-
       # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: crazy-max/ghaction-github-pages@v2
