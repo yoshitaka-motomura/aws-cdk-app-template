@@ -2,10 +2,10 @@
 import 'source-map-support/register'
 import * as cdk from 'aws-cdk-lib'
 //import { MainStack } from '../lib/main-stack'
-import { ApigatewayStack } from '../lib/apigateway-stack'
+import { ExampleStack } from '../lib/example-stack'
 
 const app = new cdk.App()
-new ApigatewayStack(app, 'CdkApigatewayStack')
+new ExampleStack(app, 'CdkApigatewayStack')
 // new MainStack(app, 'CdkMainStack', {
 //   /* If you don't specify 'env', this stack will be environment-agnostic.
 //    * Account/Region-dependent features and context lookups will not work,

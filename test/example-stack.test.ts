@@ -1,10 +1,10 @@
 import { App } from 'aws-cdk-lib'
 import { Template, Capture } from 'aws-cdk-lib/assertions'
-import { ApigatewayStack } from '../lib/apigateway-stack'
+import { ExampleStack } from '../lib/example-stack'
 
-describe('ApigatewayStack', () => {
+describe('ExampleStack test', () => {
   const app = new App()
-  const stack = new ApigatewayStack(app, 'MyTestStack')
+  const stack = new ExampleStack(app, 'MyTestStack')
   const template = Template.fromStack(stack)
 
   //lambdaファンクションが2つあるかどうか
@@ -26,7 +26,7 @@ describe('ApigatewayStack', () => {
     })
     //messageIdCaptureが正規表現にマッチするかどうか
     expect(messageIdCapture.asObject()).toEqual({
-      Ref: expect.stringMatching(/MessageApi[A-Za-z0-9]+/),
+      Ref: expect.stringMatching(/ExampleApi[A-Za-z0-9]+/),
     })
   })
 
@@ -40,7 +40,7 @@ describe('ApigatewayStack', () => {
 
     //helloIdCaptureが正規表現にマッチするかどうか
     expect(helloIdCapture.asObject()).toEqual({
-      Ref: expect.stringMatching(/MessageApi[A-Za-z0-9]+/),
+      Ref: expect.stringMatching(/ExampleApi[A-Za-z0-9]+/),
     })
   })
 
@@ -54,7 +54,7 @@ describe('ApigatewayStack', () => {
 
     //pythonMessageIdCaptureが正規表現にマッチするかどうか
     expect(pythonMessageIdCapture.asObject()).toEqual({
-      Ref: expect.stringMatching(/MessageApi[A-Za-z0-9]+/),
+      Ref: expect.stringMatching(/ExampleApi[A-Za-z0-9]+/),
     })
   })
 
