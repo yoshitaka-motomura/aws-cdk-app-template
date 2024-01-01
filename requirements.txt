@@ -1,5 +1,5 @@
 astroid==3.0.1
-boto3==1.29.6
+boto3==1.34.11
 botocore==1.32.6
 certifi==2023.11.17
 cffi==1.16.0
